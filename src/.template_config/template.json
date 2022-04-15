@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Arnaud Gourdon",
+  "classifications": [
+    "ASP.NET6",
+    "API",
+    "Template"
+  ],
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+  "identity": "AspNet6Api.Template",
+  "name": "ASP.NET6 API Template",
+  "shortName": "aspnet6-api",
+  "sourceName": "Template.AspNet6",
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            ".template_config/**", "README_packge_template.md"
+          ]
+        }
+      ]
+    }
+  ]
+}

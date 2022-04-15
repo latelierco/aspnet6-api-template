@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Template.AspNet6.Domain\Template.AspNet6.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="UseCases\OAuth\SignIn\Providers\Custom" />
+      <Folder Include="UseCases\OAuth\SignIn\Providers\Google" />
+    </ItemGroup>
+
+</Project>

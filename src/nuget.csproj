@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="**\*" Exclude="**\bin\**;**\obj\**" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <Version>0.1.2</Version>
+    <PackageId>AspNet6ApiTemplate</PackageId>
+    <Title>ASP.NET6 API Template</Title>
+    <Company>LAtelier</Company>
+    <Authors>Arnaud Gourdon</Authors>
+    <Copyright>LAtelier © 2022</Copyright>
+    <Description>A ready-to-use template for ASP.NET6 API with Domain, Application, Services, Repositories, Persistence, DI.</Description>
+    <PackageTags>dotnet-new;net6;api;templates</PackageTags>
+    <PackageCopyright>LAtelier © 2022</PackageCopyright>
+    <PackageProjectUrl>https://github.com/latelierco/aspnet6-api-template</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/latelierco/aspnet6-api-template</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>

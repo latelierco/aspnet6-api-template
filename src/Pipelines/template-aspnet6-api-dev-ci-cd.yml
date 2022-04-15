@@ -1,0 +1,48 @@
+name: $(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+trigger:
+- develop
+variables:
+  appProjectName: "$(appName)-$(projectName)"
+
+pool:
+  name: Azure Pipelines
+steps:
+- task: DownloadSecureFile@1
+  name: envFile
+  displayName: 'Download environment file'
+  inputs:
+    secureFile: "appsettings.dev.json"
+
+- bash: |
+    sudo cp $(envFile.secureFilePath) /home/vsts/work/1/s/Template.AspNet6.Api/appsettings.json
+  displayName: "Mv environment file to proper directory"
+
+- task: Docker@1
+  displayName: 'Build an image'
+  inputs:
+    azureSubscriptionEndpoint: 'Template.AspNet6'
+    containerRegistry: 'xxxxxxxxx'
+    azureContainerRegistry: $(server-login)
+    dockerFile: Dockerfile
+    imageName: '$(server-login)/$(appProjectName):$(Build.BuildNumber)'
+    useDefaultContext: false
+    buildContext: .
+    includeLatestTag: true
+
+- task: Docker@1
+  displayName: 'Push an image'
+  inputs:
+    azureSubscriptionEndpoint: 'Template.AspNet6'
+    containerRegistry: 'xxxxxxxxx'
+    azureContainerRegistry: $(server-login)
+    command: 'Push an image'
+    imageName: '$(server-login)/$(appProjectName):$(Build.BuildNumber)'
+
+- task: Docker@1
+  displayName: 'Push latest Image'
+  inputs:
+    azureSubscriptionEndpoint: 'Template.AspNet6'
+    containerRegistry: 'xxxxxxxxx'  
+    azureContainerRegistry: $(server-login)
+    command: 'Push an image'
+    imageName: '$(server-login)/$(appProjectName):latest'

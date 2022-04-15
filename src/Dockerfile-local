@@ -1,0 +1,20 @@
+﻿FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+WORKDIR /app
+EXPOSE 80
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+COPY *.sln .
+COPY **/*.csproj ./
+RUN for file in $(ls *.csproj); do mkdir -p ./${file%.*}/ && mv $file ./${file%.*}/; done
+
+RUN dotnet restore
+
+COPY . .
+
+RUN dotnet publish "Template.AspNet6.Api/Template.AspNet6.Api.csproj" -c Debug -o /app/publish --no-restore --no-self-contained
+
+FROM base AS final
+WORKDIR /app
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "Template.AspNet6.Api.dll"]
