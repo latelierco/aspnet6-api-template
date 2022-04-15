@@ -20,7 +20,7 @@
     <Description>A ready-to-use template for ASP.NET6 API with Domain, Application, Services, Repositories, Persistence, DI.</Description>
     <PackageTags>dotnet-new;net6;api;templates</PackageTags>
     <PackageCopyright>LAtelier © 2022</PackageCopyright>
-    <PackageProjectUrl>https://github.com/latelierco/aspnet6-api-template</PackageProjectUrl>
+    <PackageProjectUrl>https://www.nuget.org/packages/AspNet6ApiTemplate</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/latelierco/aspnet6-api-template</RepositoryUrl>
